@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, ImageBackground } from "react-native";
 import SearchBar from "../components/SearchBar";
 import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
@@ -17,6 +17,7 @@ const SearchScreen = () => {
   return (
     // <View style={{flex:1}}>
     <>
+     <ImageBackground source={require("../image/1.jpg")} style={styles.backgroundImage}>
       <SearchBar
         term={term}
         onTermChange={setTerm}
@@ -36,10 +37,18 @@ const SearchScreen = () => {
         />
       </ScrollView>
       {/* </View> */}
+      </ImageBackground>
     </>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    width: null,
+    height: null,
+    resizeMode: 'cover'
+}
+});
 
 export default SearchScreen;
